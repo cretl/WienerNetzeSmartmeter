@@ -37,7 +37,6 @@ def test_successful_login(requests_mock: Mocker):
     smartmeter().login()
     assert True
 
-"""
 @pytest.mark.usefixtures("requests_mock")
 def test_unsuccessful_login_failing_on_login_page_load(requests_mock):
     mock_login_page(requests_mock, 404)
@@ -434,4 +433,3 @@ def test_verbrauch_raw(requests_mock: Mocker):
     verbrauch = smartmeter().login().verbrauch(customer_id, zp, dateFrom)
 
     assert 7 == len(verbrauch['values'])
-"""
