@@ -363,8 +363,8 @@ def bewegungsdaten_response(customer_id: str, zp: str,
     }
 
 
-def smartmeter(username=USERNAME, password=PASSWORD):
-    return api.client.Smartmeter(username=username, password=password)
+def smartmeter(username=USERNAME, password=PASSWORD, code_verifier=CODE_VERIFIER):
+    return api.client.Smartmeter(username=username, password=password, _code_verifier=code_verifier)
 
 
 @pytest.mark.usefixtures("requests_mock")
