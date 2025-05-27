@@ -412,7 +412,7 @@ def mock_get_api_key(requests_mock: Mocker, bearer_token: str = ACCESS_TOKEN,
                           status_code=get_config_status, text=config_response)
 
 @pytest.mark.usefixtures("requests_mock")
-def mock_token(requests_mock: Mocker, code=RESPONSE_CODE, access_token=ACCESS_TOKEN, refresh_token=REFRESH_TOKEN,
+def mock_token(requests_mock: Mocker, code=RESPONSE_CODE, access_token=ACCESS_TOKEN, refresh_token=REFRESH_TOKEN, code_verifier=CODE_VERIFIER, 
                id_token=ID_TOKEN, status: int | None = 200,
                expires: int = 300,
                token_type: str = "Bearer"):
@@ -432,21 +432,24 @@ def mock_token(requests_mock: Mocker, code=RESPONSE_CODE, access_token=ACCESS_TO
             "grant_type": "authorization_code",
             "client_id": "wn-smartmeter",
             "redirect_uri": REDIRECT_URI,
-            "code": code
+            "code": code,
+            "code_verifier": code_verifier
         }), json=response, status_code=status)
     elif status is None:
         requests_mock.post(f'{AUTH_URL}/token', additional_matcher=post_data_matcher({
             "grant_type": "authorization_code",
             "client_id": "wn-smartmeter",
             "redirect_uri": REDIRECT_URI,
-            "code": code
+            "code": code,
+            "code_verifier": code_verifier
         }), exc=requests.exceptions.ConnectTimeout)
     else:
         requests_mock.post(f'{AUTH_URL}/token', additional_matcher=post_data_matcher({
             "grant_type": "authorization_code",
             "client_id": "wn-smartmeter",
             "redirect_uri": REDIRECT_URI,
-            "code": code
+            "code": code,
+            "code_verifier": code_verifier
         }), json={}, status_code=status)
 
 
