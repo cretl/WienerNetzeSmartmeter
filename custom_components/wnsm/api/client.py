@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 class Smartmeter:
     """Smartmeter client."""
 
-    def __init__(self, username, password):
+    def __init__(self, username, password, input_code_verifier):
         """Access the Smartmeter API.
 
         Args:
@@ -43,7 +43,7 @@ class Smartmeter:
         self._access_token_expiration = None
         self._refresh_token_expiration = None
         self._api_gateway_b2b_token = None
-        self._code_verifier = None
+        self._code_verifier = _code_verifier = input_code_verifier if 'input_code_verifier' in locals() else None
         self._code_challenge = None
         self._local_login_args = None
 
