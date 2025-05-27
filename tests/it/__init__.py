@@ -24,6 +24,8 @@ from wnsm.api.constants import ValueType, AnlagenType, RoleType  # noqa: E402
 def _dt_string(datetime_string):
     return datetime_string.isoformat(timespec='milliseconds') + "Z"
 
+CODE_VERIFIER = "QcxO7XVPYA3DAZRkSqw65j1UdU9tiHdjf7uF0KOIqSM"
+CODE_CHALLENGE = "OhP1-uIYEaqUPz9lg-Ey2sraHgCftVeGFB_FTRuucy8"
 
 PAGE_URL = "https://smartmeter-web.wienernetze.at/"
 API_CONFIG_URL = "https://smartmeter-web.wienernetze.at/assets/app-config.json"
@@ -42,6 +44,8 @@ LOGIN_ARGS = {
     "response_type": "code",
     "scope": "openid",
     "nonce": "",
+    "code_challenge": CODE_CHALLENGE,
+    "code_challenge_method": "S256"
 }
 
 USERNAME = "margit.musterfrau@gmail.com"
