@@ -34,7 +34,7 @@ logger = logging.getLogger(__name__)
 @pytest.mark.usefixtures("requests_mock")
 def test_successful_login(requests_mock: Mocker):
     expect_login(requests_mock)
-    smartmeter(_code_verifier="QcxO7XVPYA3DAZRkSqw65j1UdU9tiHdjf7uF0KOIqSM").login()
+    smartmeter().login()
     assert True
 
 """
