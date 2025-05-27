@@ -22,8 +22,7 @@ from it import (
     USERNAME,
     mock_token,
     mock_get_api_key,
-    expect_history, expect_bewegungsdaten, zaehlpunkt_response,
-    CODE_VERIFIER
+    expect_history, expect_bewegungsdaten, zaehlpunkt_response
 )
 from wnsm.api.errors import SmartmeterConnectionError, SmartmeterLoginError, SmartmeterQueryError
 import wnsm.api.constants as const
@@ -35,7 +34,7 @@ logger = logging.getLogger(__name__)
 @pytest.mark.usefixtures("requests_mock")
 def test_successful_login(requests_mock: Mocker):
     expect_login(requests_mock)
-    smartmeter()._code_verifier = CODE_VERIFIER
+    smartmeter()._code_verifier = "QcxO7XVPYA3DAZRkSqw65j1UdU9tiHdjf7uF0KOIqSM"
     smartmeter().login()
     assert True
 
