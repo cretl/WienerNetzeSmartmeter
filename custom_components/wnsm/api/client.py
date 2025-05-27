@@ -44,9 +44,9 @@ class Smartmeter:
         self._refresh_token_expiration = None
         self._api_gateway_b2b_token = None
         if input_code_verifier is not None:
-            _code_verifier = input_code_verifier
+            self._code_verifier = input_code_verifier
         else:
-            _code_verifier = None
+            self._code_verifier = None
         self._code_challenge = None
         self._local_login_args = None
 
