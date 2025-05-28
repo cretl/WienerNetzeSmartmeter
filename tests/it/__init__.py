@@ -24,8 +24,8 @@ from wnsm.api.constants import ValueType, AnlagenType, RoleType  # noqa: E402
 def _dt_string(datetime_string):
     return datetime_string.isoformat(timespec='milliseconds') + "Z"
 
-CODE_VERIFIER = "QcxO7XVPYA3DAZRkSqw65j1UdU9tiHdjf7uF0KOIqSM"
-CODE_CHALLENGE = "OhP1-uIYEaqUPz9lg-Ey2sraHgCftVeGFB_FTRuucy8"
+CODE_VERIFIER = "30VayZvGKqlW9eImS9ksvvjRePhfox2qSYda-tLE6hc"
+CODE_CHALLENGE = "K3kc5ihkd-TB4ZmZT1Vo4-5vX5FNJvhNDSxYjkLkFOU"
 
 PAGE_URL = "https://smartmeter-web.wienernetze.at/"
 API_CONFIG_URL = "https://smartmeter-web.wienernetze.at/assets/app-config.json"
